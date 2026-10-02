@@ -25,6 +25,7 @@
     --rule-light:    #e8e5df;
     --tag-bg:        rgba(107,91,79,.07);
     --tag-text:      #5a4f45;
+    --badge-border:  rgba(107,91,79,.15);
     --code-accent:   #8b6914;
     --code-bg:       #F0EDE7;
 
@@ -56,6 +57,7 @@
       --rule-light:    #1f1d1b;
       --tag-bg:        rgba(184,160,136,.1);
       --tag-text:      #b8a088;
+      --badge-border:  rgba(184,160,136,.2);
       --code-accent:   #d4a83c;
       --code-bg:       #1a1816;
 
@@ -87,6 +89,7 @@
     --rule-light:    #1f1d1b;
     --tag-bg:        rgba(184,160,136,.1);
     --tag-text:      #b8a088;
+    --badge-border:  rgba(184,160,136,.2);
     --code-accent:   #d4a83c;
     --code-bg:       #1a1816;
 
@@ -293,6 +296,31 @@
     font-weight: 400;
     line-height: 1.6;
     max-width: 620px;
+  }
+
+  /* ── AI badge strip (hero) ── */
+  .ai-strip {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .ai-badge {
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: .75rem;
+    font-weight: 500;
+    color: var(--accent);
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: var(--accent-glow);
+    border: 1px solid var(--badge-border);
+    letter-spacing: .02em;
+    transition: all .3s ease;
+  }
+  .ai-badge:hover {
+    border-color: var(--accent-soft);
+    color: var(--accent-hover);
+    transform: translateY(-1px);
   }
 
   /* ═══════════════════════════════════════════
@@ -663,10 +691,16 @@
     <div class="eyebrow reveal" style="--i:0">&gt; whoami</div>
     <h1 class="reveal" style="--i:1"><span class="highlight">Arkaprava</span><br>Ghosh</h1>
     <p class="tagline reveal" style="--i:2">
-      I build things that work — native iOS apps, backend systems,
-      and the debugging tooling in between.
+      I build things that work — native iOS apps, AI-assisted developer tooling,
+      and the debugging infrastructure in between.
       Currently at PayPal, making merchant onboarding reliable.
     </p>
+    <div class="ai-strip reveal" style="--i:3">
+      <span class="ai-badge">✦ AI-native workflow</span>
+      <span class="ai-badge">Claude Code</span>
+      <span class="ai-badge">Copilot</span>
+      <span class="ai-badge">LLM-powered RCA</span>
+    </div>
   </header>
 
   <!-- ═══ Bio ═══ -->
@@ -676,6 +710,8 @@
       take three services and a Splunk query to trace, the architecture decisions
       that ripple across a codebase, the automation that turns a week of manual
       testing into a <code class="mono" style="font-size:.9em">pytest run</code>.
+      These days, I pair with LLMs the way I used to pair-program with humans:
+      as a force multiplier, not a crutch.
     </p>
     <p class="reveal" style="--i:1">
       For four years at Zoho, I shipped features on the
@@ -689,22 +725,26 @@
       building internal tools that sift through transaction data at scale, and writing
       Appium automation that runs across iOS <em>and</em> Android from one framework.
       I live in Splunk and Datadog, and I've learned that the best debugging tool is a
-      clear mental model of the system.
+      clear mental model of the system — though having an LLM help correlate 50 log
+      lines across three microservices doesn't hurt either.
     </p>
     <p class="reveal" style="--i:3">
       I care about code that ships, tools that save time, and systems that don't break
-      silently at 3 AM. When I'm not at a terminal, I'm probably building another side
-      project in SwiftUI or tinkering with logging libraries.
+      silently at 3 AM. I treat AI as part of the stack — using it to speed up RCA,
+      generate scaffolding so I can focus on the interesting bits, and catch edge
+      cases before they hit production. When I'm not at a terminal, I'm probably
+      building another side project in SwiftUI or tinkering with logging libraries.
     </p>
   </section>
 
   <!-- ═══ Code Teaser ═══ -->
   <div class="code-block-wrapper reveal" style="--i:4">
     <div class="code-block">
-      <span class="cmt">// arka@paypal ~ what I do</span><br>
-      <span class="kw">let</span> stack = [<span class="str">"Swift"</span>, <span class="str">"SwiftUI"</span>, <span class="str">"Combine"</span>, <span class="str">"Appium"</span>, <span class="str">"Splunk"</span>, <span class="str">"Git"</span>]<br>
-      <span class="kw">let</span> approach = <span class="str">"Build. Break. Debug. Ship. Repeat."</span><br>
-      <span class="kw">let</span> rule: <span class="kw">never</span> ship_on_friday = <span class="kw">true</span>
+      <span class="cmt">// arka@paypal ~ how I work</span><br>
+      <span class="kw">let</span> stack  = [<span class="str">"Swift"</span>, <span class="str">"SwiftUI"</span>, <span class="str">"Combine"</span>, <span class="str">"Appium"</span>, <span class="str">"Splunk"</span>, <span class="str">"Git"</span>]<br>
+      <span class="kw">let</span> ai     = [<span class="str">"Claude"</span>, <span class="str">"Copilot"</span>, <span class="str">"LLM-assisted RCA"</span>]<br>
+      <span class="kw">let</span> mantra = <span class="str">"Build. Break. Debug. Ship. Repeat."</span><br>
+      <span class="kw">let</span> rule   = <span class="kw">never</span> ship_on_friday
     </div>
   </div>
 
@@ -719,7 +759,7 @@
         <div class="meta">Chennai, IN  ·  May 2025 – Present</div>
         <ul class="bullets">
           <li><strong>Merchant onboarding reliability</strong> — drove RCA and fixes for live payment failures, directly improving transaction success rates.</li>
-          <li><strong>Internal analytics tooling</strong> — built AI-assisted workflows to analyze large transaction data volumes across microservices, cutting triage time.</li>
+          <li><strong>Internal analytics tooling</strong> — built AI-assisted workflows (LLM-powered log analysis) to triage large transaction data volumes across microservices, cutting RCA time significantly.</li>
           <li><strong>Cross-platform automation</strong> — built an Appium suite from scratch covering iOS + Android under a single framework; onboarded QA teams across regions.</li>
           <li><strong>Production debugging</strong> — traced payment failures across services using Splunk &amp; Datadog; resolved critical issues in live environments.</li>
         </ul>
@@ -823,6 +863,17 @@
           <span class="skill-tag">Appium</span>
           <span class="skill-tag">SourceTree</span>
           <span class="skill-tag">Git</span>
+        </div>
+      </div>
+
+      <div class="skill-group reveal" style="--i:5">
+        <h4>AI &amp; Workflow</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude / Claude Code</span>
+          <span class="skill-tag">GitHub Copilot</span>
+          <span class="skill-tag">LLM-assisted debugging</span>
+          <span class="skill-tag">AI-powered RCA</span>
+          <span class="skill-tag">Prompt engineering</span>
         </div>
       </div>
     </div>
