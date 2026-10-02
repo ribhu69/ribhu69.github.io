@@ -1,13 +1,13 @@
 <title>Arkaprava Ghosh</title>
-<meta name="description" content="Arkaprava Ghosh — software engineer at PayPal. I build iOS apps, AI-assisted tools, and systems that ship.">
+<meta name="description" content="Arkaprava Ghosh &mdash; software engineer at PayPal. I build iOS apps, AI-assisted tools, and systems that ship.">
 
 <style>
-  /* ── Fonts ── */
+  /* -- Fonts -- */
   @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
 
-  /* ═══════════════════════════════════════════
-     TOKENS — Light
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     TOKENS &mdash; Light
+     =========================================== */
   :root {
     --bg:            #FAF9F6;
     --bg-alt:        #F5F2ED;
@@ -36,9 +36,9 @@
     --grad-footer:   linear-gradient(180deg, transparent 0%, rgba(107,91,79,.03) 100%);
   }
 
-  /* ═══════════════════════════════════════════
-     TOKENS — Dark (auto)
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     TOKENS &mdash; Dark (auto)
+     =========================================== */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       --bg:            #121110;
@@ -69,9 +69,9 @@
     }
   }
 
-  /* ═══════════════════════════════════════════
-     TOKENS — Dark (toggle override)
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     TOKENS &mdash; Dark (toggle override)
+     =========================================== */
   :root[data-theme="dark"] {
     --bg:            #121110;
     --bg-alt:        #1a1816;
@@ -100,9 +100,9 @@
     color-scheme: dark;
   }
 
-  /* ═══════════════════════════════════════════
+  /* ===========================================
      BASE
-     ═══════════════════════════════════════════ */
+     =========================================== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
@@ -125,7 +125,7 @@
     margin: 0 auto;
   }
 
-  /* ── Ambient background gradients ── */
+  /* -- Ambient background gradients -- */
   .ambient {
     pointer-events: none;
     position: fixed;
@@ -170,7 +170,7 @@
     .ambient { display: none; }
   }
 
-  /* ── Theme toggle (glass pill) ── */
+  /* -- Theme toggle (glass pill) -- */
   .theme-toggle {
     position: fixed;
     top: 24px;
@@ -201,9 +201,9 @@
     .theme-toggle { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 17px; }
   }
 
-  /* ═══════════════════════════════════════════
-     TYPOGRAPHY — Think big
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     TYPOGRAPHY &mdash; Think big
+     =========================================== */
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
     font-weight: 600;
@@ -230,12 +230,12 @@
     font-weight: 400;
   }
 
-  /* ── Selection ── */
+  /* -- Selection -- */
   ::selection { background: var(--accent); color: var(--bg); }
 
-  /* ═══════════════════════════════════════════
+  /* ===========================================
      NAV
-     ═══════════════════════════════════════════ */
+     =========================================== */
   .nav {
     position: relative;
     z-index: 2;
@@ -257,9 +257,9 @@
     .nav a { font-size: .82rem; }
   }
 
-  /* ═══════════════════════════════════════════
-     HERO — Massive, airy
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     HERO &mdash; Massive, airy
+     =========================================== */
   .hero {
     position: relative;
     z-index: 2;
@@ -298,7 +298,7 @@
     max-width: 620px;
   }
 
-  /* ── AI badge strip (hero) ── */
+  /* -- AI badge strip (hero) -- */
   .ai-strip {
     margin-top: 24px;
     display: flex;
@@ -323,9 +323,9 @@
     transform: translateY(-1px);
   }
 
-  /* ═══════════════════════════════════════════
-     BIO — Generous leading, confident rhythm
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     BIO &mdash; Generous leading, confident rhythm
+     =========================================== */
   .bio {
     position: relative;
     z-index: 2;
@@ -341,9 +341,9 @@
   .bio p:last-child { margin-bottom: 0; }
   .bio p strong { color: var(--text); font-weight: 600; }
 
-  /* ═══════════════════════════════════════════
-     CODE BLOCK — Glass card
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     CODE BLOCK &mdash; Glass card
+     =========================================== */
   .code-block-wrapper {
     position: relative;
     z-index: 2;
@@ -371,9 +371,9 @@
     .code-block { padding: 20px; font-size: .78rem; }
   }
 
-  /* ═══════════════════════════════════════════
+  /* ===========================================
      SECTIONS
-     ═══════════════════════════════════════════ */
+     =========================================== */
   .section {
     position: relative;
     z-index: 2;
@@ -403,9 +403,9 @@
     color: var(--text);
   }
 
-  /* ═══════════════════════════════════════════
-     EXPERIENCE — Glass timeline cards
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     EXPERIENCE &mdash; Glass timeline cards
+     =========================================== */
   .exp-list {
     display: flex;
     flex-direction: column;
@@ -445,7 +445,7 @@
     letter-spacing: .02em;
   }
 
-  /* ── Bullet list ── */
+  /* -- Bullet list -- */
   .bullets {
     list-style: none;
     padding: 0;
@@ -477,9 +477,9 @@
     .exp-card { padding: 24px 22px; }
   }
 
-  /* ═══════════════════════════════════════════
-     PROJECTS — 2-col cards with glass & gradient
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     PROJECTS &mdash; 2-col cards with glass & gradient
+     =========================================== */
   .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -529,9 +529,9 @@
     .project-card { padding: 24px 22px; }
   }
 
-  /* ═══════════════════════════════════════════
-     SKILLS — Glass chips
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     SKILLS &mdash; Glass chips
+     =========================================== */
   .skills-section {
     display: flex;
     flex-direction: column;
@@ -567,9 +567,9 @@
     transform: translateY(-1px);
   }
 
-  /* ═══════════════════════════════════════════
+  /* ===========================================
      FOOTER
-     ═══════════════════════════════════════════ */
+     =========================================== */
   .footer {
     position: relative;
     z-index: 2;
@@ -605,9 +605,9 @@
     color: var(--text-faint);
   }
 
-  /* ═══════════════════════════════════════════
-     INTERSECTION OBSERVER — Reveal animations
-     ═══════════════════════════════════════════ */
+  /* ===========================================
+     INTERSECTION OBSERVER &mdash; Reveal animations
+     =========================================== */
   .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -622,16 +622,16 @@
   /* Stagger children inside a .reveal-group */
   .reveal-group > .reveal { transition-delay: calc(var(--i, 0) * .1s); }
 
-  /* ═══════════════════════════════════════════
+  /* ===========================================
      REDUCED MOTION
-     ═══════════════════════════════════════════ */
+     =========================================== */
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .hero h1 .highlight { animation: none; background: none; -webkit-text-fill-color: var(--text); }
     .exp-card:hover, .project-card:hover { transform: none; }
   }
 
-  /* ── Responsive base ── */
+  /* -- Responsive base -- */
   @media (max-width: 520px) {
     body { padding: 0 16px; font-size: 16px; }
     .section-label { font-size: .72rem; }
@@ -648,11 +648,11 @@
 </div>
 
 <!-- Theme toggle -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">&#9680;</button>
 
 <div class="container">
 
-  <!-- ═══ Nav ═══ -->
+  <!-- === Nav === -->
   <nav class="nav reveal" style="--i:0">
     <a href="#work">Work</a>
     <a href="#projects">Projects</a>
@@ -660,57 +660,57 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- ═══ Hero ═══ -->
+  <!-- === Hero === -->
   <header class="hero">
     <div class="eyebrow reveal" style="--i:0">&gt; whoami</div>
     <h1 class="reveal" style="--i:1"><span class="highlight">Arkaprava</span><br>Ghosh</h1>
     <p class="tagline reveal" style="--i:2">
-      I build things that work — native iOS apps, AI-assisted developer tooling,
+      I build things that work &mdash; native iOS apps, AI-assisted developer tooling,
       and the debugging infrastructure in between.
       Currently at PayPal, making merchant onboarding reliable.
     </p>
     <div class="ai-strip reveal" style="--i:3">
-      <span class="ai-badge">✦ AI-native workflow</span>
+      <span class="ai-badge">&#10022; AI-native workflow</span>
       <span class="ai-badge">Claude Code</span>
       <span class="ai-badge">Copilot</span>
       <span class="ai-badge">LLM-powered RCA</span>
     </div>
   </header>
 
-  <!-- ═══ Bio ═══ -->
+  <!-- === Bio === -->
   <section class="bio reveal-group">
     <p class="reveal" style="--i:0">
-      I'm a software engineer who gravitates toward the hard parts — the bugs that
+      I'm a software engineer who gravitates toward the hard parts &mdash; the bugs that
       take three services and a Splunk query to trace, the architecture decisions
       that ripple across a codebase, the automation that turns a week of manual
       testing into a single command. I pair with LLMs the way I used to
       pair-program with humans: as a force multiplier, not a crutch.
     </p>
     <p class="reveal" style="--i:1">
-      I spent nearly four years at Zoho, deep in the iOS trenches — modular
+      I spent nearly four years at Zoho, deep in the iOS trenches &mdash; modular
       framework redesigns, SwiftUI widgets, CoreData optimizations that meaningfully
       moved the crash-free rate. Before that I was a college kid obsessed with
       cryptography, building RSA+AES hybrid encryption tools because I wanted to
       understand how things actually work under the hood.
     </p>
     <p class="reveal" style="--i:2">
-      At PayPal, I work on merchant onboarding — fixing live payment failures,
+      At PayPal, I work on merchant onboarding &mdash; fixing live payment failures,
       building internal tools that sift through transaction data at scale, and writing
       Appium automation that runs across iOS <em>and</em> Android from one framework.
       I live in Splunk and Datadog, and I've learned that the best debugging tool is a
-      clear mental model of the system — though having an LLM help correlate 50 log
+      clear mental model of the system &mdash; though having an LLM help correlate 50 log
       lines across three microservices doesn't hurt either.
     </p>
     <p class="reveal" style="--i:3">
       I care about code that ships, tools that save time, and systems that don't break
-      silently at 3 AM. I treat AI as part of the stack — using it to speed up RCA,
+      silently at 3 AM. I treat AI as part of the stack &mdash; using it to speed up RCA,
       generate scaffolding so I can focus on the interesting bits, and catch edge
       cases before they hit production. When I'm not at a terminal, I'm probably
       building another side project in SwiftUI or tinkering with logging libraries.
     </p>
   </section>
 
-  <!-- ═══ Code Teaser ═══ -->
+  <!-- === Code Teaser === -->
   <div class="code-block-wrapper reveal" style="--i:4">
     <div class="code-block">
       <span class="cmt">// arka@paypal ~ how I work</span><br>
@@ -721,39 +721,39 @@
     </div>
   </div>
 
-  <!-- ═══ Experience ═══ -->
+  <!-- === Experience === -->
   <section class="section reveal-group" id="work">
     <div class="section-label reveal" style="--i:0">01 / Work</div>
     <h2 class="reveal" style="--i:1">Where I've been</h2>
 
     <div class="exp-list">
       <div class="exp-card reveal" style="--i:2">
-        <div class="role">Software Engineer 2 — <span class="company">PayPal</span></div>
-        <div class="meta">Chennai, IN &middot; May 2025 – Present</div>
+        <div class="role">Software Engineer 2 &mdash; <span class="company">PayPal</span></div>
+        <div class="meta">Chennai, IN &middot; May 2025 &ndash; Present</div>
         <ul class="bullets">
-          <li><strong>Merchant onboarding reliability</strong> — drove RCA and fixes for live payment failures, directly improving transaction success rates.</li>
-          <li><strong>Internal analytics tooling</strong> — built AI-assisted workflows (LLM-powered log analysis) to triage large transaction data volumes across microservices, cutting RCA time significantly.</li>
-          <li><strong>Cross-platform automation</strong> — built an Appium suite from scratch covering iOS + Android under a single framework; onboarded QA teams across regions.</li>
-          <li><strong>Production debugging</strong> — traced payment failures across services using Splunk &amp; Datadog; resolved critical issues in live environments.</li>
+          <li><strong>Merchant onboarding reliability</strong> &mdash; drove RCA and fixes for live payment failures, directly improving transaction success rates.</li>
+          <li><strong>Internal analytics tooling</strong> &mdash; built AI-assisted workflows (LLM-powered log analysis) to triage large transaction data volumes across microservices, cutting RCA time significantly.</li>
+          <li><strong>Cross-platform automation</strong> &mdash; built an Appium suite from scratch covering iOS + Android under a single framework; onboarded QA teams across regions.</li>
+          <li><strong>Production debugging</strong> &mdash; traced payment failures across services using Splunk &amp; Datadog; resolved critical issues in live environments.</li>
         </ul>
       </div>
 
       <div class="exp-card reveal" style="--i:3">
-        <div class="role">Member of Technical Staff — <span class="company">Zoho Corporation</span></div>
-        <div class="meta">Chennai, IN &middot; July 2021 – April 2025</div>
+        <div class="role">Member of Technical Staff &mdash; <span class="company">Zoho Corporation</span></div>
+        <div class="meta">Chennai, IN &middot; July 2021 &ndash; April 2025</div>
         <ul class="bullets">
-          <li><strong>Zoho Desk iOS</strong> — core contributor (4.7★, 100K+ downloads); redesigned core modules as a reusable framework and shipped four new feature sets.</li>
-          <li><strong>Architecture</strong> — built dynamic, user-defined modules using Combine + async/await with clean architecture patterns.</li>
-          <li><strong>Crash reduction</strong> — optimized the CoreData layer, significantly cutting app crashes and improving stability metrics.</li>
-          <li><strong>SwiftUI widgets</strong> — built platform-specific widgets for quick access to core operations, boosting user productivity.</li>
-          <li><strong>Security</strong> — assisted pen-testing and audit, identifying and mitigating potential vulnerabilities before release.</li>
-          <li><strong>Mentoring</strong> — onboarded and supported new team members, helping them ramp up on the iOS stack.</li>
+          <li><strong>Zoho Desk iOS</strong> &mdash; core contributor (4.7&#9733;, 100K+ downloads); redesigned core modules as a reusable framework and shipped four new feature sets.</li>
+          <li><strong>Architecture</strong> &mdash; built dynamic, user-defined modules using Combine + async/await with clean architecture patterns.</li>
+          <li><strong>Crash reduction</strong> &mdash; optimized the CoreData layer, significantly cutting app crashes and improving stability metrics.</li>
+          <li><strong>SwiftUI widgets</strong> &mdash; built platform-specific widgets for quick access to core operations, boosting user productivity.</li>
+          <li><strong>Security</strong> &mdash; assisted pen-testing and audit, identifying and mitigating potential vulnerabilities before release.</li>
+          <li><strong>Mentoring</strong> &mdash; onboarded and supported new team members, helping them ramp up on the iOS stack.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ═══ Projects ═══ -->
+  <!-- === Projects === -->
   <section class="section reveal-group" id="projects">
     <div class="section-label reveal" style="--i:0">02 / Projects</div>
     <h2 class="reveal" style="--i:1">Things I've built</h2>
@@ -762,34 +762,34 @@
       <div class="project-card reveal" style="--i:2">
         <h3>Journella</h3>
         <div class="tech">SwiftUI &middot; Swift Data</div>
-        <p>A journaling app built for aesthetics — clean interface, seamless persistence, and the kind of attention to detail that makes writing feel good.</p>
-        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">→</span></a>
+        <p>A journaling app built for aesthetics &mdash; clean interface, seamless persistence, and the kind of attention to detail that makes writing feel good.</p>
+        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">&rarr;</span></a>
       </div>
 
       <div class="project-card reveal" style="--i:3">
         <h3>Valora</h3>
         <div class="tech">CryptoKit &middot; SwiftUI &middot; Swift Data</div>
-        <p>A password manager that takes security seriously — native encryption via CryptoKit, no third-party auth dependencies, your keys stay yours.</p>
-        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">→</span></a>
+        <p>A password manager that takes security seriously &mdash; native encryption via CryptoKit, no third-party auth dependencies, your keys stay yours.</p>
+        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">&rarr;</span></a>
       </div>
 
       <div class="project-card reveal" style="--i:4">
         <h3>Logarithm</h3>
         <div class="tech">Swift &middot; OSLog &middot; Logger</div>
-        <p>A privacy-focused logging library wrapping Apple's Logger framework — structured, lightweight, and production-safe. Built because NSLog wasn't cutting it.</p>
-        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">→</span></a>
+        <p>A privacy-focused logging library wrapping Apple's Logger framework &mdash; structured, lightweight, and production-safe. Built because NSLog wasn't cutting it.</p>
+        <a href="https://github.com/ribhu69" target="_blank" rel="noopener" class="gh-link">GitHub <span class="arrow">&rarr;</span></a>
       </div>
 
       <div class="project-card reveal" style="--i:5">
         <h3>This Site</h3>
         <div class="tech">HTML &middot; CSS &middot; Design</div>
-        <p>Built from scratch — off-white aesthetic, glass-morphism cards, dark mode with ambient gradients. Because a dev's portfolio should look like they care.</p>
-        <a href="https://github.com/ribhu69/ribhu69.github.io" target="_blank" rel="noopener" class="gh-link">Source <span class="arrow">→</span></a>
+        <p>Built from scratch &mdash; off-white aesthetic, glass-morphism cards, dark mode with ambient gradients. Because a dev's portfolio should look like they care.</p>
+        <a href="https://github.com/ribhu69/ribhu69.github.io" target="_blank" rel="noopener" class="gh-link">Source <span class="arrow">&rarr;</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ═══ Skills ═══ -->
+  <!-- === Skills === -->
   <section class="section reveal-group" id="skills">
     <div class="section-label reveal" style="--i:0">03 / Skills</div>
     <h2 class="reveal" style="--i:1">The toolchain</h2>
@@ -852,9 +852,9 @@
     </div>
   </section>
 
-  <!-- ═══ Education ═══ -->
+  <!-- === Education === -->
 
-  <!-- ═══ Footer ═══ -->
+  <!-- === Footer === -->
   <footer class="footer reveal-group" id="contact">
     <div class="social-links reveal" style="--i:0">
       <a href="https://linkedin.com/in/arka6sp" target="_blank" rel="noopener">
@@ -880,7 +880,7 @@
 </div>
 
 <script>
-  /* ── Theme toggle ── */
+  /* -- Theme toggle -- */
   (function() {
     var toggle = document.getElementById('themeToggle');
     var root = document.documentElement;
@@ -903,7 +903,7 @@
     });
   })();
 
-  /* ── Intersection Observer: scroll reveal ── */
+  /* -- Intersection Observer: scroll reveal -- */
   (function() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
