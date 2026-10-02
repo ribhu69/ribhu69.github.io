@@ -1,0 +1,563 @@
+<title>Arkaprava Ghosh</title>
+<meta name="description" content="Software engineer building reliable systems, native iOS apps, and developer tools.">
+
+<style>
+  /* ── Fonts ── */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+  /* ── Tokens: light ── */
+  :root {
+    --bg:           #FAF9F6;
+    --bg-card:      #F3F1EC;
+    --text:         #1a1a1a;
+    --text-muted:   #6b635b;
+    --accent:       #6b5b4f;
+    --accent-hover: #4a3e35;
+    --rule:         #d9d4cc;
+    --rule-light:   #e8e5df;
+    --tag-bg:       #e8e5df;
+    --tag-text:     #5a4f45;
+    --shadow:       0 1px 3px rgba(0,0,0,.04);
+    --hero-gradient: linear-gradient(180deg, #FAF9F6 0%, #f3f0ea 100%);
+  }
+
+  /* ── Tokens: dark (auto) ── */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:           #1c1b1a;
+      --bg-card:      #262320;
+      --text:         #e8e5df;
+      --text-muted:   #9a948a;
+      --accent:       #b8a088;
+      --accent-hover: #d4bfa0;
+      --rule:         #3a3530;
+      --rule-light:   #2a2724;
+      --tag-bg:       #2a2724;
+      --tag-text:     #b8a088;
+      --shadow:       0 1px 3px rgba(0,0,0,.2);
+      --hero-gradient: linear-gradient(180deg, #1c1b1a 0%, #1f1d1b 100%);
+      color-scheme: dark;
+    }
+  }
+
+  /* ── Tokens: dark (toggle) ── */
+  :root[data-theme="dark"] {
+    --bg:           #1c1b1a;
+    --bg-card:      #262320;
+    --text:         #e8e5df;
+    --text-muted:   #9a948a;
+    --accent:       #b8a088;
+    --accent-hover: #d4bfa0;
+    --rule:         #3a3530;
+    --rule-light:   #2a2724;
+    --tag-bg:       #2a2724;
+    --tag-text:     #b8a088;
+    --shadow:       0 1px 3px rgba(0,0,0,.2);
+    --hero-gradient: linear-gradient(180deg, #1c1b1a 0%, #1f1d1b 100%);
+    color-scheme: dark;
+  }
+
+  /* ── Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0 24px;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-block: 0;
+  }
+
+  /* ── Theme toggle ── */
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+  }
+  .theme-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  @media (max-width: 480px) {
+    .theme-toggle { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
+  }
+
+  /* ── Typography ── */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: 2.6rem; line-height: 1.15; letter-spacing: -0.02em; }
+  h2 { font-size: 1.4rem; line-height: 1.3; }
+  h3 { font-size: 1.1rem; line-height: 1.35; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+  a:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); }
+
+  .text-muted { color: var(--text-muted); font-size: 0.9rem; }
+  .text-sm { font-size: 0.875rem; }
+
+  /* ── Hero ── */
+  .hero {
+    padding-block: 80px 48px;
+    text-align: left;
+  }
+  .hero h1 { margin-bottom: 8px; }
+  .hero .tagline {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 20px;
+  }
+  .hero .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    font-size: 0.9rem;
+  }
+  .hero .contact-row a { border-bottom: none; }
+
+  /* ── Section ── */
+  .section { padding-block: 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .section-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--text);
+  }
+  .section-header .rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── Experience cards ── */
+  .exp-card {
+    position: relative;
+    padding: 0 0 0 20px;
+    border-left: 1px solid var(--rule-light);
+    padding-bottom: 36px;
+  }
+  .exp-card:last-child { padding-bottom: 0; }
+  .exp-card .dot {
+    position: absolute;
+    left: -5.5px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+  }
+  .exp-card .role {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+  .exp-card .company {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .exp-card .meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .exp-card .desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── Bullet list ── */
+  .bullets {
+    list-style: none;
+    padding: 0;
+  }
+  .bullets li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  /* ── Project cards ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 500px) { .projects-grid { grid-template-columns: 1fr; } }
+
+  .project-card {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--rule-light);
+  }
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.06);
+  }
+  .project-card h3 { margin-bottom: 4px; font-size: 1.05rem; }
+  .project-card .tech { font-size: 0.8rem; color: var(--accent); margin-bottom: 8px; font-weight: 500; }
+  .project-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── Skills ── */
+  .skills-section { display: flex; flex-direction: column; gap: 24px; }
+
+  .skill-group h3 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    font-size: 0.82rem;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-weight: 400;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+  }
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent-hover);
+  }
+
+  /* ── Education ── */
+  .edu-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-block: 10px;
+    border-bottom: 1px solid var(--rule-light);
+  }
+  .edu-card:last-child { border-bottom: none; }
+  .edu-card .school { font-weight: 500; }
+  .edu-card .degree { color: var(--text-muted); font-size: 0.9rem; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 64px;
+    padding-block: 40px 32px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-bottom: 16px;
+  }
+  .footer .social-links a {
+    color: var(--text-muted);
+    border-bottom: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer .social-links a:hover { color: var(--accent-hover); }
+  .footer .social-links svg { width: 16px; height: 16px; fill: currentColor; }
+  .footer .copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  /* ── Animations ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero h1       { animation: fadeUp 0.7s ease both; }
+    .hero .tagline { animation: fadeUp 0.7s 0.1s ease both; }
+    .hero .contact-row { animation: fadeUp 0.7s 0.2s ease both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  /* ── Selection ── */
+  ::selection { background: var(--accent); color: var(--bg); }
+</style>
+
+<!-- Theme toggle -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+
+<div class="container">
+
+  <!-- ═══ Hero ═══ -->
+  <header class="hero">
+    <h1>Arkaprava Ghosh</h1>
+    <p class="tagline">
+      Building reliable systems, native iOS experiences, and tools that make debugging less painful.
+      Currently at PayPal working on merchant onboarding.
+    </p>
+    <div class="contact-row">
+      <a href="mailto:arkapravaghosh99@gmail.com">arkapravaghosh99@gmail.com</a>
+      <span class="text-muted">Nagpur, India</span>
+    </div>
+  </header>
+
+  <!-- ═══ Experience ═══ -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Experience</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="exp-card">
+      <div class="dot"></div>
+      <div class="role">Software Engineer 2 &middot; <span class="company">PayPal</span></div>
+      <div class="meta">Chennai, India &middot; May 2025 – Present</div>
+      <ul class="bullets" style="margin-top:8px;">
+        <li>Fixed live onboarding merchant payment failures — drove RCA and implemented fixes, directly improving transaction success rates.</li>
+        <li>Built internal tooling to analyse large volumes of transaction data, using AI-assisted workflows to speed up root cause analysis across microservices.</li>
+        <li>Debugged and resolved payment issues by tracing failures across services using Splunk &amp; Datadog.</li>
+        <li>Built an Appium-based automation suite from scratch covering both iOS and Android under a single framework; onboarded QA teams across multiple regions.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="dot"></div>
+      <div class="role">Member of Technical Staff &middot; <span class="company">Zoho Corporation</span></div>
+      <div class="meta">Chennai, India &middot; July 2021 – April 2025</div>
+      <ul class="bullets" style="margin-top:8px;">
+        <li>Core contributor to the <strong>Zoho Desk iOS app</strong> — 4.7★ on the App Store with 100K+ downloads.</li>
+        <li>Redesigned core functionality as a modular framework, simplifying integration across diverse applications.</li>
+        <li>Implemented dynamic, user-defined modules using Combine for event handling and async/await for streamlined operations.</li>
+        <li>Revamped existing features and shipped four new feature sets using clean architecture practices.</li>
+        <li>Optimised CoreData layer, significantly reducing app crashes.</li>
+        <li>Assisted security audit team with thorough pen-testing to identify and mitigate potential risks.</li>
+        <li>Developed platform-specific widgets using SwiftUI for quick access to core module operations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ Projects ═══ -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Journella</h3>
+        <div class="tech">SwiftUI &middot; Swift Data</div>
+        <p>A journaling app focused on aesthetics, blending seamless functionality with a modern, clean interface for capturing daily thoughts.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Valora</h3>
+        <div class="tech">CryptoKit &middot; SwiftUI &middot; Swift Data</div>
+        <p>A password management app designed to securely store and protect sensitive information with native encryption.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Logarithm</h3>
+        <div class="tech">Swift &middot; Logger Framework</div>
+        <p>A privacy-focused logging library written over Apple's logger framework — structured, lightweight, and built for debugging in production.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>File Encryption (RSA+AES)</h3>
+        <div class="tech">Python &middot; Cryptography &middot; Google Drive</div>
+        <p>Hybrid cryptography with RSA 2048-bit and AES 128-bit encryption, integrated with Google Drive for secure cloud file uploads.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Skills ═══ -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Skills &amp; Knowledge</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="skills-section">
+      <div class="skill-group">
+        <h3>Frameworks &amp; Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Swift</span>
+          <span class="skill-tag">SwiftUI</span>
+          <span class="skill-tag">UIKit</span>
+          <span class="skill-tag">Combine</span>
+          <span class="skill-tag">CoreData</span>
+          <span class="skill-tag">Swift Data</span>
+          <span class="skill-tag">Cocoa Touch</span>
+          <span class="skill-tag">XCTest</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Architecture &amp; Practices</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MVC</span>
+          <span class="skill-tag">MVVM</span>
+          <span class="skill-tag">MVI</span>
+          <span class="skill-tag">VIPER / Clean Architecture</span>
+          <span class="skill-tag">Debugging &amp; RCA</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">SPM &amp; CocoaPods</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Tools &amp; Monitoring</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Xcode</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">IntelliJ</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Datadog</span>
+          <span class="skill-tag">SourceTree</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Education ═══ -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Education</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="school">Yeshwantrao Chavan College of Engineering</div>
+        <div class="degree">B.E. in Information Technology &middot; CGPA 8.5/10</div>
+      </div>
+      <span class="text-muted">2017 – 2021</span>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="school">Ira International School</div>
+        <div class="degree">Senior Secondary &middot; 78.8%</div>
+      </div>
+      <span class="text-muted">2017</span>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer">
+    <div class="social-links">
+      <a href="https://linkedin.com/in/arka6sp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://twitter.com/arka6sp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Twitter
+      </a>
+      <a href="https://iamarka.in" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        iamarka.in
+      </a>
+      <a href="https://github.com/ribhu69" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="copyright">&copy; 2025 Arkaprava Ghosh</p>
+  </footer>
+
+</div>
+
+<script>
+  (function() {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    // Read stored preference
+    try {
+      var stored = localStorage.getItem('theme');
+      if (stored === 'dark' || stored === 'light') root.setAttribute('data-theme', stored);
+    } catch(e) {}
+
+    toggle.addEventListener('click', function() {
+      var current = root.getAttribute('data-theme');
+      var next;
+      if (!current) {
+        // No explicit theme set — go by what the user sees now
+        var isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        next = isDark ? 'light' : 'dark';
+      } else {
+        next = current === 'dark' ? 'light' : 'dark';
+      }
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e) {}
+    });
+  })();
+</script>
